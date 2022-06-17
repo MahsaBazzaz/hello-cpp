@@ -5,6 +5,16 @@ using std::string;
 using std::cout;
 using std::cin;
 
+
+void myFunction(string country = "Norway") {
+    cout << country << "\n";
+}
+// pass by reference
+void swapNums(int &x, int &y) {
+    int z = x;
+    x = y;
+    y = z;
+}
 int main() {
     cout << "Hello, World!" << std::endl;
     //
@@ -97,8 +107,22 @@ int main() {
     cout << ptr<< std::endl;
     cout << &ptr << std::endl;
     //
-    // dereference
+    // dereference: Output the value of food with the pointer (Pizza)
     //
+    cout << *ptr << "\n";
+    // Change the value of the pointer
+    *ptr = "Hamburger";
 
+    // Output the new value of the pointer (Hamburger)
+    cout << *ptr << "\n";
+
+    // Output the new value of the food variable (Hamburger)
+    cout << base << "\n";
+    //
+    // functions
+    //
+    myFunction("India");
+    myFunction();
     return 0;
 }
+
