@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 //TODO: why should we add include <string> if string is part of std?
+// Scope resolution operator
 using std::string;
 using std::cout;
 using std::cin;
@@ -15,8 +16,25 @@ void swapNums(int &x, int &y) {
     x = y;
     y = z;
 }
+class MyClass{
+public: string publicId;
+private:int uid; std::string name;
+public:
+    MyClass(){
+        uid = 1234;
+        name = "A";
+        publicId = std::to_string(uid) +  " " + name;
+        cout << name << " instantiated" << std::endl;
+    }
+    void Hello(){
+        cout << "Hello from " << name << std::endl;
+    }
+};
 int main() {
-    cout << "Hello, World!" << std::endl;
+    MyClass myObject;
+    myObject.Hello();
+
+    cout << "Hello, World!"  << myObject.publicId << std::endl;
     //
     // data types
     //
